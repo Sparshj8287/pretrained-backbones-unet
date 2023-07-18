@@ -10,7 +10,7 @@ class SemanticSegmentationDataset(Dataset):
     def __init__(self, 
                  img_paths, 
                  mask_paths=None,
-                 size=(256, 256),
+                 size=(512, 512),
                  mode='binary',
                  normalize=None):
         """
@@ -84,9 +84,7 @@ class SemanticSegmentationDataset(Dataset):
         img = torch.Tensor(np.array(img, dtype=np.uint8).transpose((2, 0, 1)))
         if self.mask_paths is not None:
             mask_path = self.mask_paths[index]
-            mask = Image.open(mask_path)
-            mask = mask.resize((self.size[0], self.size[1])) 
-            mask = np.array(mask)
+            mask=np.load(mask_path)
             
             if self.mode == 'binary':
                 mask = self._binary_mask(mask)
@@ -106,8 +104,6 @@ class SemanticSegmentationDataset(Dataset):
         return masks
 
     def _binary_mask(self, mask):
-        mask[:, :][mask[:, :] >= 1] = 1
-        mask[:, :][mask[:, :] < 1] = 0
         mask = np.expand_dims(mask, axis=0)
         return mask
 
