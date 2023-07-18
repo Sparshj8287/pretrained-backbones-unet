@@ -28,7 +28,7 @@ def get_version():
 
 
 setuptools.setup(
-    name="pretrained-backbones-unet",
+    name="pretrained-backbones-unet-sparsh",
     version=get_version(),
     author="Berkay Mayali",
     license="MIT",
