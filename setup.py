@@ -35,7 +35,7 @@ setuptools.setup(
     description="Packaged version of the timm pretrained model backbones for Unet architecture",
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
-    url="https://github.com/mberkay0/pretrained-backbones-unet",
+    url="https://github.com/Sparshj8287/pretrained-backbones-unet",
     packages=setuptools.find_packages(),
     python_requires=">=3.7",
     install_requires=get_requirements(),
