@@ -49,7 +49,7 @@ class Trainer:
         self.lr_scheduler = lr_scheduler
         self.device = self._get_device(device)
         self.epochs = epochs
-        self.model = torch.nn.DataParallel(self.model, device_ids=[0, 1])
+        self.model = torch.nn.DataParallel(self.model)
         self.model.to(self.device)
         # self.model = model.to(self.device)
         
